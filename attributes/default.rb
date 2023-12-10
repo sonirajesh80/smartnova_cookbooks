@@ -1,0 +1,31 @@
+default[:docroot]= '/var/www/html'
+default[:apache][:log_level]= 'info'
+default[:apache][:log_dir]="/var/log/apache2"
+
+default[:initial_setup][:sysctl] = Mash.new
+default[:initial_setup][:sysctl]['net.core.somaxconn'] = 1024           # 128
+default[:initial_setup][:sysctl]['net.core.netdev_max_backlog'] = 3072  # 1000
+default[:initial_setup][:sysctl]['net.ipv4.tcp_max_syn_backlog'] = 2048 # 1024
+default[:initial_setup][:sysctl]['net.ipv4.tcp_fin_timeout'] = 30       # 60
+default[:initial_setup][:sysctl]['net.ipv4.tcp_keepalive_time'] = 1024  # 7200
+default[:initial_setup][:sysctl]['net.ipv4.tcp_max_orphans'] = 131072   # 32768
+default[:initial_setup][:sysctl]['net.ipv4.tcp_tw_reuse'] = 1    
+
+default[:initial_setup][:limits][:core] = nil
+default[:initial_setup][:limits][:data] = nil
+default[:initial_setup][:limits][:fsize] = nil
+default[:initial_setup][:limits][:memlock] = nil
+default[:initial_setup][:limits][:nofile] = 65536
+default[:initial_setup][:limits][:rss] = nil
+default[:initial_setup][:limits][:stack] = nil
+default[:initial_setup][:limits][:cpu] = nil
+default[:initial_setup][:limits][:nproc] = nil
+default[:initial_setup][:limits][:as] = nil
+default[:initial_setup][:limits][:maxlogins] = nil
+default[:initial_setup][:limits][:maxsyslogins] = nil
+default[:initial_setup][:limits][:priority] = nil
+default[:initial_setup][:limits][:locks] = nil
+default[:initial_setup][:limits][:sigpending] = nil
+default[:initial_setup][:limits][:msgqueue] = nil
+default[:initial_setup][:limits][:nice] = nil
+default[:initial_setup][:limits][:rtprio] = nil

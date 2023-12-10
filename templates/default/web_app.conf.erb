@@ -1,0 +1,31 @@
+<VirtualHost *:80>
+  ServerName <%= node[:server_name] %>
+  <% if node[:server_aliases] && !node[:server_aliases].empty? -%>
+  ServerAlias <% node[:server_aliases].each do |a| %><%= "#{a}" %> <% end %>
+  <% end -%>
+  DocumentRoot <%= node[:docroot] %>
+
+  <Directory <%= node[:docroot] %>>
+    Options FollowSymLinks
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+  </Directory>
+
+  <Directory ~ "\.svn">
+    Order allow,deny
+    Deny from all
+  </Directory>
+
+  <Directory ~ "\.git">
+    Order allow,deny
+    Deny from all
+  </Directory>
+
+  LogLevel <%= node[:apache][:log_level] %>
+  ErrorLog <%= node[:apache][:log_dir] %>/<%= node[:name] %>-error.log
+  CustomLog <%= node[:apache][:log_dir] %>/<%= node[:name] %>-access.log combined
+
+  FileETag none
+
+</VirtualHost>

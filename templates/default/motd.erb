@@ -1,0 +1,15 @@
+ This instance is managed with Smartnova Cookbook.
+
+   ######  OpsWorks Summary  ######
+   Operating System: <%= @os_release %>
+   OpsWorks Instance: <%= @instance[:hostname] %>
+   OpsWorks Instance ID: <%= @instance[:id] %>
+<% if @instance[:region] && @instance[:availability_zone] && @instance[:aws_instance_id] -%>
+   EC2 Region: <%= @instance[:region] %>
+   EC2 Availability Zone: <%= @instance[:availability_zone] %>
+   EC2 Instance ID: <%= @instance[:aws_instance_id] %>
+<% end -%>
+   Public IP: <%= @instance[:ip] %>
+   Private IP: <%= @instance[:private_ip] %>
+   VPC ID: <%= @instance[:vpc_id] %>
+   Subnet ID: <%= @instance[:subnet_id] %>

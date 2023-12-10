@@ -1,0 +1,35 @@
+# Berkshelf #
+#############
+Berksfile
+Berksfile.lock
+cookbooks/*
+tmp
+
+# Bundler #
+###########
+vendor/*
+Gemfile
+Gemfile.lock
+
+# Policyfile #
+##############
+Policyfile.rb
+Policyfile.lock.json
+
+# Cookbooks #
+#############
+CHANGELOG*
+CONTRIBUTING*
+TESTING*
+CODE_OF_CONDUCT*
+
+# Vagrant #
+###########
+.vagrant
+Vagrantfile
+
+kitchen.yml
+pass_attribute.json
+.kitchen
+.delivery
+.DS_Store
