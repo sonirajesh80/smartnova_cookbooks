@@ -2,7 +2,6 @@
 #############
 Berksfile
 Berksfile.lock
-cookbooks/*
 tmp
 
 # Bundler #
